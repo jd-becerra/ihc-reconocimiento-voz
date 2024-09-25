@@ -1,5 +1,5 @@
 # src/__init__.py
-from gui import start_app
+from src.gui import start_app
 
 def main():
     start_app()

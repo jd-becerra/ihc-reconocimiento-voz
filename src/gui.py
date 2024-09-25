@@ -1,9 +1,9 @@
+# src/gui.py
 import tkinter as tk
 import os
 from platform import system
-from grid import Grid
 import pygame as pg
-import time
+from src.grid import Grid
 
 def start_app():
     pg.init()

@@ -4,12 +4,11 @@ import os
 from platform import system
 import pygame as pg
 from src.grid import Grid
-import src.voice_recognition as voice_recognition
+from src.voice_recognition import VoiceRecognition
+
 
 def start_app():
-    voice = voice_recognition.VoiceRecognition()
-    VOICE_TEXT = 'Da click en el boton para empezar a hablar'
-    VOICE_ENABLED = False
+    voice = VoiceRecognition()
 
     pg.init()
 
@@ -25,10 +24,14 @@ def start_app():
     guiwin = tk.Frame(root, width=75, height=500)
     guiwin.pack(side=tk.RIGHT)
     # Add button that makes VOICE_ENABLED = not VOICE_ENABLED
-    button = tk.Button(guiwin, text='Grabar voz', command=voice.toggle)
+    def toggle_button():
+        voice.toggle()
+        # Change button color to red if voice is enabled, else to gray
+        button.config(bg='red' if voice.enabled else 'gray')
+    button = tk.Button(guiwin, text='Grabar voz', command=toggle_button)
     button.pack(side=tk.TOP)
     # Add display of voice text
-    voice_display = tk.Label(guiwin, text=VOICE_TEXT)
+    voice_display = tk.Label(guiwin, text='Da click en el boton para empezar a hablar')
     voice_display.pack(side=tk.TOP)
 
 
@@ -56,8 +59,7 @@ def start_app():
 
         # Update the voice recognition if enabled
         if voice.enabled:
-            voice_text = voice.listen()
-            voice_display.config(text=voice_text)
+            voice_display.config(text=voice.output)
 
         # Clear the screen
         screen.fill(pg.Color('black'))

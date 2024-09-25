@@ -1,13 +1,17 @@
 import speech_recognition as sr
+import threading
 
 class VoiceRecognition:
     def __init__(self):
         self.recognizer = sr.Recognizer()
         self.microphone = sr.Microphone()
         self.enabled = False
+        self.output = ""
 
     def toggle(self):
         self.enabled = not self.enabled
+        if self.enabled:
+            threading.Thread(target=self.listen).start()
 
     def listen(self):
         output = ""
@@ -16,9 +20,8 @@ class VoiceRecognition:
             print("Di algo:")
             audio = self.recognizer.listen(source)
             try:
-                output = self.recognizer.recognize_google(audio, language="es-ES")
-                return output
+                self.output = self.recognizer.recognize_google(audio, language="es-ES")
             except sr.UnknownValueError:
-                return "ERROR: No se pudo reconocer el audio"
+                self.output =  "ERROR: No se pudo reconocer el audio"
             except sr.RequestError as e:
-                return "ERROR: " + str(e)
+                self.output = "ERROR: " + str(e)

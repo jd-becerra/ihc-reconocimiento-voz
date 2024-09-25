@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="IHC - Reconocimiento de voz",
+    name="IHC-Reconocimiento de voz",
     version="0.1.0",
     author="David Becerra, Aldo Valdez, José Moctezuma",
     description="Proyecto de IHC para moverse en un grid con comandos de voz",
@@ -16,7 +16,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'start=src.gui:start_app',
+            'run_ihc_app=src.__init__:main',
         ],
     },
     classifiers=[

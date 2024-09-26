@@ -50,7 +50,7 @@ def start_app():
     # Initialize pygame
     PG_WIDTH, PG_HEIGHT, CELL_SIZE = 800, 600, 100
     screen = pg.display.set_mode((PG_WIDTH, PG_HEIGHT))
-    line_color = 'black'
+    line_color = 'white'
     # create Grid object (scr_width, scr_height, cell_size, color)
     grid = Grid(PG_WIDTH, PG_HEIGHT, CELL_SIZE, line_color)
 

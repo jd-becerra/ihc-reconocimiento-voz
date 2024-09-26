@@ -9,7 +9,7 @@ class Grid:
         self.rows = height // cell_size
         self.fill_color = pg.Color(color)
         self.player_sprite = pg.image.load('src/mono.png')
-        self.player_sprite = pg.transform.scale(self.player_sprite, (cell_size, cell_size))
+        self.player_sprite = pg.transform.scale(self.player_sprite, (cell_size - 30 , cell_size - 20))
         self.player_position = (self.columns // 2, self.rows // 2)
 
     def draw(self, surface):

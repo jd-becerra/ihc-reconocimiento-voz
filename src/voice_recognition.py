@@ -4,7 +4,10 @@ import threading
 class VoiceRecognition:
     def __init__(self):
         self.recognizer = sr.Recognizer()
-        self.microphone = sr.Microphone()
+        try:
+            self.microphone = sr.Microphone()
+        except:
+            self.microphone = None
         self.enabled = False
         self.output = ""
 

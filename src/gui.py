@@ -66,7 +66,7 @@ def start_app():
 
         # Update the voice recognition if enabled
         if voice.enabled:
-            voice_display.config(text=voice.output)
+            voice_display.config(text='comando: ' + voice.output)
 
         # Clear the screen
         screen.fill(pg.Color('black' if line_color == 'white' else 'white'))

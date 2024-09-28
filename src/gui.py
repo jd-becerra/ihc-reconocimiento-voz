@@ -22,7 +22,7 @@ def start_app():
     root.bind('<Right>', lambda e: grid.move_player(1, 0))
 
     # Embed for pygame window
-    embed = tk.Frame(root, width=800, height=600)
+    embed = tk.Frame(root, width=900, height=700)
     embed.grid(columnspan=(600), rowspan=500)  # Adds grid
     embed.pack(side=tk.LEFT)  # packs window to the left
 
@@ -50,7 +50,7 @@ def start_app():
         os.environ['SDL_VIDEODRIVER'] = 'windib'
 
     # Initialize pygame
-    PG_WIDTH, PG_HEIGHT, CELL_SIZE = 800, 600, 100
+    PG_WIDTH, PG_HEIGHT, CELL_SIZE = 900, 700, 100
     screen = pg.display.set_mode((PG_WIDTH, PG_HEIGHT))
     line_color = 'white'
     # create Grid object (scr_width, scr_height, cell_size, color)

@@ -34,7 +34,9 @@ def start_app():
         voice.toggle()
         # Change button color to red if voice is enabled, else to gray
         button.config(bg='red' if voice.enabled else 'gray')
-    button = tk.Button(guiwin, text='Grabar voz', command=toggle_button)
+        button.config(text='Grabando...' if voice.enabled else 'Click para grabar voz')
+    
+    button = tk.Button(guiwin, text='Click para grabar voz', command=toggle_button)
     button.pack(side=tk.TOP)
     # Add display of voice text
     welcome_banner = 'Da click en el boton para empezar a hablar' if voice.microphone else 'ERROR: No se pudo acceder al microfono'
@@ -54,9 +56,29 @@ def start_app():
     # create Grid object (scr_width, scr_height, cell_size, color)
     grid = Grid(PG_WIDTH, PG_HEIGHT, CELL_SIZE, line_color)
 
+    def voice_move_player(command):
+        command = command.lower()
+        if command == 'norte':
+            grid.move_player(0, -1)
+        elif command == 'sur':
+            grid.move_player(0, 1)
+        elif command == 'este':
+            grid.move_player(-1, 0)
+        elif command == 'oeste':
+            grid.move_player(1, 0)
+        elif command == 'noreste':
+            grid.move_player(-1, -1)
+        elif command == 'noroeste':
+            grid.move_player(1, -1)
+        elif command == 'sureste':
+            grid.move_player(-1, 1)
+        elif command == 'suroeste':
+            grid.move_player(1, 1)
+
     # main loop
     running = True
     clock = pg.time.Clock() 
+    log_output = ''
 
     while running:
         # Handle pygame events
@@ -66,7 +88,13 @@ def start_app():
 
         # Update the voice recognition if enabled
         if voice.enabled:
-            voice_display.config(text='comando: ' + voice.output)
+            # Move player based on voice command
+            if voice.output != '':
+                out = voice.output.lower()
+                log_output += out + '\n'
+                voice_move_player(out)
+            voice.output = ''
+            voice_display.config(text=log_output)
 
         # Clear the screen
         screen.fill(pg.Color('black' if line_color == 'white' else 'white'))

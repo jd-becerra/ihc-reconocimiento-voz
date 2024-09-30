@@ -30,7 +30,7 @@ class VoiceRecognition:
                     print("Timeout reached, no speech detected.")
                     continue      
                 except sr.UnknownValueError:
-                    self.output =  "ERROR: No se pudo reconocer el audio"
+                    self.output =  "No se pudo reconocer el audio"
                     continue
                 except sr.RequestError as e:
                     self.output = "ERROR: " + str(e)

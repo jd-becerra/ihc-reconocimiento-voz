@@ -12,7 +12,8 @@ setup(
     install_requires=[
         'pygame',
         'SpeechRecognition',
-        'pyaudio'
+        'pyaudio',
+        'setuptools'
     ],
     entry_points={
         'console_scripts': [

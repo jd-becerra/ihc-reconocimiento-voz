@@ -1,46 +1,48 @@
-# ihc-reconocimiento-voz
+# python-voice-recognition
 
-## Proyecto de IHC para moverse en un grid con comandos de voz
+## "Human-Computer Interaction" project to move on a grid using voice commands
 
-### Para correr el proyecto:
+### To run the project:
 
-1. **Asegúrate de tener Python y la dependencia pip instalados**.
+1. **Make sure you have Python and the pip dependency installed**.
 
-2. **Instala tu entorno virtual** con el siguiente comando:
+2. **Install your virtual environment** with the following command:
 
    ```bash
    python -m venv venv
    ```
 
-3. **Inicializa el entorno virtual**. En Windows, usa el siguiente comando:
+3. **Initialize the virtual environment**. On Windows, use the following command:
 
    ```bash
    .\venv\Scripts\activate
    ```
 
-   **NOTA**: Si en Windows te sale un error mencionando que no se pueden correr scripts en el sistema, ingresa el siguiente comando en una terminal PowerShell con derechos de administrador:
+   **NOTE**: If on Windows you get an error mentioning that scripts cannot be run on the system, enter the following command in a PowerShell terminal with administrator privileges:
 
    ```bash
    Set-ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
-   Para abrir PowerShell con derechos de administrador, presiona `Windows + X` y selecciona "Windows PowerShell (Admin)" o "Terminal (Admin)". Una vez realizado esto, inicializa el entorno virtual como ya se mencionó en este punto.
+   To open PowerShell with administrator privileges, press `Windows + X` and select "Windows PowerShell (Admin)" or "Terminal (Admin)". Once this is done, initialize the virtual environment as mentioned in this step.
 
-   Tu terminal debería tener un `(venv)` añadido al inicio del path del directorio:
+   Your terminal should have `(venv)` added at the beginning of the directory path:
 
    ```plaintext
    (venv) C:\path\
    ```
 
-4. **Una vez inicializado el entorno virtual, instala el proyecto** con el siguiente comando:
+4. **Once the virtual environment is initialized, install the project** with the following command:
 
    ```bash
    pip install -e .
    ```
 
-   _(Nótese el punto, tiene que ser justo desde el root del directorio)_
+   *(Note the dot, it must be run exactly from the root of the directory)*
 
-5. **Una vez instalado el proyecto**, lo puedes correr con el siguiente comando:
+5. **Once the project is installed**, you can run it with the following command:
+
    ```bash
    run_ihc_app
    ```
+

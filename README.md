@@ -8,7 +8,7 @@ The goal of the project is to demonstrate how **natural language input** can be 
 
 ---
 
-## 🧠 Project Overview
+## Project Overview
 
 * **Voice recognition** using real-time microphone input
 * **Grid-based movement system** controlled by spoken directions
